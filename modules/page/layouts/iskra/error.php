@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\page\views;
+namespace modules\page\layouts\iskra;
 
 class error extends \core\base_view
 {
@@ -14,7 +14,7 @@ class error extends \core\base_view
         
         ob_start();
         
-        echo '<p>'._('Debug backtrace').':</p>';
+        echo '<p>'.__('Debug backtrace').':</p>';
         echo '<ol>';
         foreach ($this->backtrace as $line) {
             echo '<li>'. $line .'</li>';

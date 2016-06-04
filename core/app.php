@@ -121,12 +121,12 @@ class app
         
         // Load the controller. If not found, default controller is used.
         try {
-            $controller = $this->load_controller(self::$request->controller);
+			$controller = $this->load_controller(self::$request->controller);
             if (!$controller) {
                 $controller = $this->load_default_controller();
             }
-        } catch (\Exception $e) {
-            throw new app_exception(_('Invalid HTTP request.'));
+        } catch (\Exception $ex) {
+            throw $ex;
         }
         
         // Define the action requested.
@@ -137,7 +137,7 @@ class app
         
         if (!method_exists($controller, 'action_'.$action)) {
             // TODO or use a default action?
-            throw new app_exception(_('Invalid HTTP request.'));
+            throw new app_exception(_('Invalid HTTP request: action not found.'));
         }
         
         // If we have gotten this far, populate the current user's data.
@@ -219,11 +219,15 @@ class app
         $view->pre_render();
         
         // Find and initialize the layout.
-        $layout_class = '\\modules\\page\\layouts\\iskra\\'.$view->layout;
-        if (!class_exists($layout_class)) {
-            throw new app_exception(__('Invalid layout.'));
-        }
-        $layout = new $layout_class($view->get_data());
+		try {
+			$layout_class = '\\modules\\page\\layouts\\iskra\\'.$view->layout;
+			if (!class_exists($layout_class)) {
+				throw new app_exception(__('Invalid layout.'));
+			}
+			$layout = new $layout_class($view->get_data());
+		} catch (\Exception $ex) {
+			throw new app_exception($ex->getMessage());
+		}
         
         // Pass the view into the layout.
         $layout->view = $view;
@@ -254,7 +258,7 @@ class app
             return FALSE;
         }
         
-        $fullname = '\\controllers\\'.$class.'\\'.$class;
+        $fullname = '\\modules\\'.$class.'\\module';
         try {
             if (!class_exists($fullname)) {
                 return FALSE;
@@ -300,13 +304,13 @@ class app
     {
         $actions = [];
         
-        $controllers = scandir(self::$dirroot.'/controllers');
+        $controllers = scandir(self::$dirroot.'/modules');
         foreach ($controllers as $controller) {
             if (in_array($controller, ['.', '..', '_new_controller'])) {
                 continue;
             }
             try {
-                $controller_full = '\\controllers\\'.$controller.'\\'.$controller;
+                $controller_full = '\\modules\\'.$controller.'\\module';
                 if (!class_exists($controller_full)) {
                     continue;
                 }

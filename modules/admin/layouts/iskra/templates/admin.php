@@ -20,6 +20,8 @@
 
 <body>
 
+Admin menu here.
+	
 <div class="container-fluid">
     
     <div class="row">
