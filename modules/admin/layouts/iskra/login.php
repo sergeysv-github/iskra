@@ -1,8 +1,8 @@
 <?php
 
-namespace modules\page\views;
+namespace modules\page\layouts;
 
-class home extends \core\base_view
+class login extends \core\base_view
 {
     public function render()
     {

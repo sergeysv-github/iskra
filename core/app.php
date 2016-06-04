@@ -219,7 +219,7 @@ class app
         $view->pre_render();
         
         // Find and initialize the layout.
-        $layout_class = '\\modules\\page\\layouts\\'.$view->layout;
+        $layout_class = '\\modules\\page\\layouts\\iskra\\'.$view->layout;
         if (!class_exists($layout_class)) {
             throw new app_exception(__('Invalid layout.'));
         }

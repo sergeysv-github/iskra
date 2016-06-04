@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\page\views;
+namespace modules\admin\views;
 
 class home extends \core\base_view
 {

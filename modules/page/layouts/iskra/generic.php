@@ -1,8 +1,8 @@
 <?php
 
-namespace modules\page\views;
+namespace modules\page\layouts\iskra;
 
-class home extends \core\base_view
+class generic extends \core\base_view
 {
     public function render()
     {
