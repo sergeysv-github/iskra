@@ -4,7 +4,7 @@ namespace modules\page\views;
 
 class error extends \core\base_view
 {
-    public $layout = 'error';
+    public $layout = '\\modules\\page\\layouts\\iskra\\error';
     
     private function get_backtrace_html()
     {

@@ -1,0 +1,47 @@
+.admin-nav 
+{
+	background-color: #212121;
+	position: fixed;
+    top: 0;
+    height: 100%;
+    bottom: 0;
+}
+.admin-body
+{
+	padding-left: 30px;
+}
+
+@media (max-width: 768px) 
+{
+	.admin-nav
+	{
+		width: 100%;
+		position: relative;
+		bottom: auto;
+		height: auto;
+	}
+}
+
+@media (min-width: 768px) 
+{
+	.admin-nav
+	{
+		width: 200px;
+	}
+}
+
+@media (min-width: 992px) 
+{
+	.admin-nav
+	{
+		width: 16.66666667%;
+	}
+}
+
+@media (min-width: 1200px) 
+{
+	.admin-nav
+	{
+		width: 16.66666667%;
+	}
+}

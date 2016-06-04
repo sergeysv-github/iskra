@@ -5,7 +5,7 @@ namespace core;
 abstract class base_view 
 {
     public $controller_nav = '';
-    public $layout = 'generic';
+    public $layout = '\\modules\\page\\layouts\\iskra\\generic';
     public $nav_instance = '';
     public $side_nav = '';
     public $title;

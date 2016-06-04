@@ -13,7 +13,7 @@
     <script src="modules/page/layouts/iskra/templates/js/app.js"></script>
     <script><?php echo 'app_request = '.json_encode(\core\app::$request).';'; ?></script>
     
-    <title>Quixotic</title>
+    <title>Iskra</title>
 </head>
 
 <body id="login">

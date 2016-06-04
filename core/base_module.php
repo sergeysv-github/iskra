@@ -4,6 +4,7 @@ namespace core;
 
 abstract class base_module
 {
+    public $admin_menu = [];
     public $default_action;
     public $page;
     

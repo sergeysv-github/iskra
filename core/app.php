@@ -126,7 +126,7 @@ class app
                 $controller = $this->load_default_controller();
             }
         } catch (\Exception $ex) {
-            throw $ex;
+            throw new app_exception($ex->getMessage());
         }
         
         // Define the action requested.
@@ -152,7 +152,7 @@ class app
         
         // Check if user is capable of performing the action requested.
         if (!$this->action_is_allowed(self::$request->controller, $action)) {
-            $this->show_fatal_error('Access denied.<br><small>Your user does not have the permissions required to access this function in Quixotic. If you are getting this error on the home page you probably don\'t have any roles assigned and should contact the Androgogic Service Desk on 1800 987 757.</small>');
+            $this->show_fatal_error('Access denied.');
         }
         
         // Set the page-related values of the request.
@@ -220,11 +220,10 @@ class app
         
         // Find and initialize the layout.
 		try {
-			$layout_class = '\\modules\\page\\layouts\\iskra\\'.$view->layout;
-			if (!class_exists($layout_class)) {
+			if (!class_exists($view->layout)) {
 				throw new app_exception(__('Invalid layout.'));
 			}
-			$layout = new $layout_class($view->get_data());
+			$layout = new $view->layout($view->get_data());
 		} catch (\Exception $ex) {
 			throw new app_exception($ex->getMessage());
 		}

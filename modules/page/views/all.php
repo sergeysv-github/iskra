@@ -1,8 +1,8 @@
 <?php
 
-namespace modules\admin\views;
+namespace modules\page\views;
 
-class home extends \core\base_view
+class all extends \core\base_view
 {
 	public $layout = '\\modules\\admin\\layouts\\iskra\\admin';
 	
