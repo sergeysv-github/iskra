@@ -6,7 +6,6 @@ use core\db_arg;
 
 class page extends \core\base_model
 {
-    public $description;
     public $name;
     
     public static function get_table() {

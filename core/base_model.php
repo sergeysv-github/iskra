@@ -362,7 +362,7 @@ abstract class base_model
         }
         
         if (!$result) {
-            $this->errors[] = __('Unknown error while trying to update data.');
+            $this->errors[] = _('Unknown error while trying to update data.');
         }
         
         $this->id = $result;

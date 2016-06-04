@@ -13,6 +13,7 @@ use \core\html;
     
     <script src="modules/page/layouts/iskra/templates/js/jquery.js"></script>
     <script src="modules/page/layouts/iskra/templates/js/bootstrap.min.js"></script>
+    <script src="modules/admin/layouts/iskra/templates/js/admin.js"></script>
     
     <title><?php echo (!empty($this->title) ? $this->title.' - Iskra' : 'Iskra') ?></title>
 </head>
@@ -29,9 +30,11 @@ use \core\html;
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 admin-body">
+			<div class="row">
 			
             <?php $this->view->render(); ?>
 			
+			</div>
         </div>
     </div>
 </div>

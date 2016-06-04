@@ -14,7 +14,7 @@ class error extends \core\base_view
         
         ob_start();
         
-        echo '<p>'.__('Debug backtrace').':</p>';
+        echo '<p>'._('Debug backtrace').':</p>';
         echo '<ol>';
         foreach ($this->backtrace as $line) {
             echo '<li>'. $line .'</li>';

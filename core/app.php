@@ -221,7 +221,7 @@ class app
         // Find and initialize the layout.
 		try {
 			if (!class_exists($view->layout)) {
-				throw new app_exception(__('Invalid layout.'));
+				throw new app_exception(_('Invalid layout.'));
 			}
 			$layout = new $view->layout($view->get_data());
 		} catch (\Exception $ex) {
